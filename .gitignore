@@ -43,7 +43,7 @@ defines.php
 *.kate-swp
 
 # temporary ignore to keep the initial commit readable
-/lib/cockpit
+# /lib/cockpit
 /lib/cpmultiplane
 # /modules/FormValidation
 # /modules/rlj-blocks

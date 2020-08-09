@@ -1,0 +1,388 @@
+
+$spacer: 4rem;
+
+body {
+    font-weight: 400;
+    font-size: 20px;
+
+    > header,
+    > main,
+    > footer,
+    > aside,
+    > section,
+    > .section
+    {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        @include box-sizing(border-box);
+    }
+
+    > header,
+    > main > header > h2,
+    > main > header > div,
+    > main > section,
+    > main > .section,
+    > main > nav,
+    > main > article,
+    > main > article > section, // multiple blog posts (no excerpt)
+    > aside,
+    > footer
+    {
+        padding: 1rem 1rem;
+        @include breakpoint(medium) {
+            padding: 2rem 2rem;
+        }
+        @include breakpoint(normal) {
+            padding: 3rem 3rem;
+        }
+        @include breakpoint(large) {
+            padding: 3rem 4rem;
+        }
+        @include breakpoint(xlarge) {
+            padding: 3rem 5rem;
+        }
+    }
+
+    > header,
+    > main > header > h2
+    {
+        text-align: center;
+        @include breakpoint(small) {
+            text-align: left;
+        }
+    }
+
+    > header {
+        h1 {
+            margin: 0;
+        }
+        > a {
+            display: block;
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+            @include breakpoint(medium) {
+                display: inline-block;
+                .logo, h1 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 1em;
+                }
+            }
+        }
+    }
+
+    > main {
+        > header {
+            position: relative;
+            padding: 0;
+            @include box-sizing(border-box);
+            > h2 {
+                margin: 0;
+            }
+        }
+        > section,
+        > article,
+        {
+            @include box-sizing(border-box);
+            &:nth-child(3n+1) {
+                background-color: $color-white;
+            }
+            &:nth-child(3n+2) {
+                color: $color-black;
+                background-color: $color-light-grey;
+            }
+            &:nth-child(3n) {
+                color: $color-white;
+                background-color: $color-darker;
+                a {
+                    color: $color-link-invert;
+                    &:hover, &:focus {
+                        color: $color-link-invert-hover;
+                    }
+                }
+                .label {
+                    color: $color-text;
+                }
+                code, samp, kbd, tt, var, pre {
+                    background-color: $color-black;
+                }
+            }
+            &.excerpt {
+                &:nth-child(3n+1) > section {
+                    border-color: $color-light-grey;
+                }
+                &:nth-child(3n+2) > section {
+                    border-color: $color-white;
+                }
+                &:nth-child(3n) > section {
+                    border-color: $color-dark;
+                }
+            }
+        }
+    }
+
+    > footer {
+        text-align: right;
+    }
+
+}
+
+[class^="item-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    padding-bottom: 1rem;
+    @include box-sizing(border-box);
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+.item-1-2, .item-2-2 {
+    @include breakpoint(medium) {
+        display: inline-block;
+        width: 50%;
+        padding-bottom: 0;
+        &:nth-child(1) {
+            padding-right: $spacer / 2;
+        }
+        &:nth-child(2) {
+            padding-left: $spacer / 2;
+        }
+    }
+}
+.item-1-4, .item-2-4, .item-3-4, .item-4-4 {
+    @include breakpoint(medium) {
+        display: inline-block;
+        width: 50%;
+        &:nth-child(2n-1) {
+            padding-right: $spacer / 2;
+        }
+        &:nth-child(2n) {
+            padding-left: $spacer / 2;
+        }
+        &:nth-last-child(-n+2) {
+            padding-bottom: 0;
+        }
+    }
+    @include breakpoint(large) {
+        width: 25%;
+        padding-bottom: 0;
+        &:nth-child(1) {
+            padding-right: $spacer * 3 / 4;
+        }
+        &:nth-child(2) {
+            padding-left:  $spacer * 1 / 4;
+            padding-right: $spacer * 2 / 4;
+        }
+        &:nth-child(3) {
+            padding-left:  $spacer * 2 / 4;
+            padding-right: $spacer * 1 / 4;
+        }
+        &:nth-child(4) {
+            padding-left:  $spacer * 3 / 4;
+        }
+    }
+}
+.item-1-3, .item-2-3, .item-3-3 {
+    @include breakpoint(medium) {
+        display: inline-block;
+        width: 33%;
+        padding-bottom: 0;
+        &:nth-child(1) {
+            padding-right: $spacer * 2 / 3;
+        }
+        &:nth-child(2) {
+            padding-left: $spacer * 1 / 3;
+            padding-right: $spacer * 1 / 3;
+        }
+        &:nth-child(3) {
+            padding-left: $spacer * 2 / 3;
+        }
+    }
+}
+
+.featured_image {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    + h2, + div {
+        @include breakpoint(small) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: $color-black-transp-light;
+            color: $color-white;
+            @include box-sizing(border-box);
+        }
+    }
+}
+
+.language-switch {
+    display: block;
+    font-size: 1em;
+    @include breakpoint(small) {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+    }
+    ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+        }
+    }
+    a {
+        display: block;
+    }
+}
+
+article.excerpt {
+    .featured_image {
+        display: block;
+        width: 200px;
+        margin: 0 auto;
+        @include breakpoint(small) {
+            float: left;
+            padding: 0 $spacer / 2 $spacer / 2 0;
+        }
+        + section {
+            &:first-of-type { // clear floating featured_image
+                padding-top: 0;
+                padding-left: 0;
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    clear: both;
+                }
+                // if first element is a repeater with multiple elements, the
+                // layout with the floating featured_image breaks
+                [class^="item-"] {
+                    width: auto;
+                    display: inline;
+                }
+            }
+        }
+    }
+    &:after { // clear floating featured_image
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        clear: both;
+    }
+    > section {
+        border-style: solid;
+        border-bottom-width: 1rem;
+        @include breakpoint(medium) {
+            &:nth-of-type(2n) {
+                border-left-width: 1rem;
+                padding-left: 1rem;
+            }
+            &:nth-of-type(2n+1) {
+                border-right-width: 1rem;
+                padding-right: 1rem
+            }
+        }
+        @include breakpoint(normal) {
+            &:nth-of-type(2n) {
+                padding-left: 2rem;
+            }
+            &:nth-of-type(2n+1) {
+                padding-right: 2rem
+            }
+        }
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+}
+
+body > header > nav {
+    > ul > li:first-child {
+        margin-left: 0;
+    }
+    @include breakpoint(medium) {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.search {
+    display: inline-block;
+    button {
+        top: 2px; // fit on input with 2px border
+    }
+}
+header .search {
+    width: 12em;
+    max-width: 100%;
+    margin: .5em auto;
+    form {
+        width: 100%;
+        margin: 0;
+    }
+    @include breakpoint(small) {
+        position: absolute;
+        top: 2.5em;
+        right: 1em;
+        width: auto;
+        form {
+            width: 7rem;
+            transition: width .2s ease-in-out;
+            &:hover, &:focus, &:focus-within {
+                width: 12em;
+                @include box-shadow(0px 1px 3px $color-shadow);
+            }
+        }
+        input {
+            border: none
+        }
+        button {
+            top: 1px;
+            right: 1px;
+        }
+    }
+    @include breakpoint(medium) {
+        form {
+            &:hover, &:focus, &:focus-within {
+                width: 18em;
+            }
+        }
+    }
+}
+// IE11 hack to make form visible by default
+_:-ms-fullscreen, :root header .search form {
+    @include breakpoint(medium) {
+        width: 12em;
+        @include box-shadow(0px 0px 1px $color-shadow);
+    }
+    @include breakpoint(medium) {
+        width: 18em;
+    }
+}
+
+.gallery {
+    margin-top: auto;
+}
+
+.search-entries {
+    > section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.contactform {
+    form {
+        margin: 0;
+        max-width: 50em;
+    }
+    fieldset {
+        border-color: $color-light-grey;
+    }
+}

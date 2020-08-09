@@ -1,0 +1,47 @@
+
+$color-breadcrumbs: #666 !default;
+$color-breadcrumbs-spacer: #bbb !default;
+
+nav.breadcrumbs {
+    display: block;
+    font-size: 1em;
+    font-weight: bolder;
+    color: $color-breadcrumbs;
+    li, a {
+        display: inline;
+    }
+    a {
+        // display: inline;
+        padding: 0;
+        text-decoration: none;
+        color: $color-breadcrumbs;
+        &:hover {
+            color: $color-link-hover;
+        }
+    }
+    > ol > li {
+        margin: 0;
+    }
+    li + li:before { // triangle spacer
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        color: $color-breadcrumbs-spacer;
+        border-style: solid;
+        border-width: .2em 0 .2em .3em;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        background-color: transparent;
+    }
+    .icon-home {
+        background-color: transparent;
+        font-size: 0.8em;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.8em;
+        &:before, &:after {
+            border-radius: 1px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+/**
+ * npm run build:sass
+ * npm run watch:sass
+ */
+
+@import 'sass/copyright-preamble';
+
+// fonts
+$font: system-ui, system-ui-fallback, Helvetica, sans-serif;
+$font_extra: $font; // webfont for headlines
+
+// other
+$border-radius: 2px;
+$width: 1000px;
+
+// imports
+@import 'sass/import-all';
+@import 'multiplane';

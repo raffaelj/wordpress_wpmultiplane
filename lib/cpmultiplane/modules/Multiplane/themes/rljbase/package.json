@@ -1,0 +1,38 @@
+{
+    "name": "cpmultiplane-theme-rljbase",
+    "label": "rljbase",
+    "version": "0.2.0",
+    "author": "Raffael Jesche",
+    "homepage": "https://github.com/raffaelj/CpMultiplane",
+    "license": "MIT",
+    "description": "Basic styling and skeleton for CpMultiplane.",
+    "keywords": [
+        "content:wysiwsg",
+        "content:markdown",
+        "content:repeater",
+        "lightbox",
+        "privacy friendly"
+    ],
+    "scripts": {
+        "build": "npm run build:js && npm run build:sass",
+        "watch": "concurrently \"npm:watch:sass\" \"npm:watch:js\" -k -r",
+        "build:sass": "node-sass -r --source-map true --output-style compressed assets/css/style.scss assets/css/style.min.css",
+        "watch:sass": "npm run build:sass && npm run build:sass -- -w",
+        "build:js": "browserify assets/js/src/mp.js -s MP | uglifyjs --config-file uglify.json > assets/js/mp.min.js",
+        "watch:js": "npm run build:js && onchange \"assets/js/src/mp.js\" \"assets/js/src/mp/*.js\" -- npm run build:js",
+        "build:js:dev": "browserify assets/js/src/mp.js -s MP > assets/js/mp.min.js",
+        "watch:js:dev": "npm run build:js:dev && onchange \"assets/js/src/mp.js\" \"assets/js/src/mp/*.js\" -- npm run build:js:dev",
+        "build:polyfills": "browserify assets/js/src/polyfills.js | uglifyjs > assets/js/polyfills.min.js",
+        "generate-preamble-files": "node scripts/generate-preamble-files.js",
+        "update": "npm run generate-preamble-files && npm run build"
+    },
+    "devDependencies": {
+        "browserify": "^16.5.0",
+        "core-js": "^3.2.1",
+        "formdata-polyfill": "^3.0.19",
+        "onchange": "^6.1.0",
+        "uglify-js": "^3.6.0",
+        "node-sass": "^4.13.1",
+        "concurrently": "^5.1.0"
+    }
+}

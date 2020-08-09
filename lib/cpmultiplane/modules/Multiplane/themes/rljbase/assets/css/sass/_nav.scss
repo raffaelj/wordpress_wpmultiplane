@@ -1,0 +1,343 @@
+
+$color-bg:                  #fcfcfc !default;
+$color-shadow:              #ccc !default;
+$color-white:               #fefefe !default;
+$color-black-transp-dark:   rgba(0,0,0,.95) !default;
+
+$color-nav-mini:            $color-white !default;
+$color-nav-mini-hover:      $color-black !default;
+$color-nav-mini-bg:         $color-black-transp-dark !default;
+
+nav {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    @include box-sizing(border-box);
+
+    ul, ol {
+        padding: 0;
+        display: block;
+    }
+
+    li {
+        position: relative;
+        display: block;
+        a {
+            display: block;
+            padding: .2em;
+            &.dropdown {
+                padding-right: 1em;
+            }
+        }
+        > ul, > ol {
+            display: none;
+        }
+        &:hover > ul,
+        &:focus > ul,
+        > a:hover + ul,
+        > a:focus + ul,
+        &:hover > ol,
+        &:focus > ol,
+        > a:hover + ol,
+        > a:focus + ol
+        {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 12;
+            list-style: none;
+            background-color: $color-bg;
+            white-space: nowrap;
+            @include box-sizing(border-box);
+        }
+        &:focus-within > ul,
+        &:focus-within > ol
+        {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 12;
+            list-style: none;
+            background-color: $color-bg;
+            white-space: nowrap;
+            @include box-sizing(border-box);
+        }
+        li {
+            &:hover > ul,
+            &:focus > ul,
+            &:hover > ol,
+            &:focus > ol
+            {
+                @include breakpoint(small) {
+                    right: 0;
+                }
+                @include breakpoint(medium) {
+                    top: 0;
+                    left: 100%;
+                    right: auto;
+                    padding-left: 0;
+                }
+            }
+            &:focus-within > ul,
+            &:focus-within > ol
+            {
+                @include breakpoint(small) {
+                    right: 0;
+                }
+                @include breakpoint(medium) {
+                    top: 0;
+                    left: 100%;
+                    right: auto;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    &.horizontal {
+        li {
+            &:hover > ul,
+            &:focus > ul,
+            > a:hover + ul,
+            > a:focus + ul,
+            &:hover > ol,
+            &:focus > ol,
+            > a:hover + ol,
+            > a:focus + ol
+            {
+                top: auto;
+                left: 0;
+            }
+            &:focus-within > ul,
+            &:focus-within > ol
+            {
+                top: auto;
+                left: 0;
+            }
+            li {
+                &:hover > ul,
+                &:focus > ul,
+                &:hover > ol,
+                &:focus > ol
+                {
+                    @include breakpoint(small) {
+                        right: 0;
+                        padding-left: .5em;
+                    }
+                    @include breakpoint(medium) {
+                        top: 0;
+                        left: 100%;
+                        right: auto;
+                        padding-left: 0;
+                    }
+                }
+                &:focus-within > ul,
+                &:focus-within > ol
+                {
+                    @include breakpoint(small) {
+                        right: 0;
+                        padding-left: .5em;
+                    }
+                    @include breakpoint(medium) {
+                        top: 0;
+                        left: 100%;
+                        right: auto;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+        > ul, > ol {
+            > li {
+                display:inline-block;
+                margin:.5em;
+            }
+        }
+
+        @media (hover: none), (any-pointer: coarse) {
+            input[type=checkbox] {
+                width: 1em;
+                + label {
+                    width: 1.5em;
+                }
+            }
+        }
+    }
+
+    a[href="#nav"], .icon-close {
+        display: none;
+    }
+
+    input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto; // revert 1em from _form.scss
+        height: 1em;
+        margin: 0;
+        padding: 0;
+        font-size: 1.6em;
+        + label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1em; // revert 1em from _form.scss
+            height: 100%;
+            margin: 0;
+            padding: 0 0 0 .25em;
+            @include box-sizing(border-box);
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                margin: 0;
+                padding: 0;
+                border-color: $color-shadow transparent transparent transparent;
+                border-width: .25em;
+                top: 50%;
+                left: .25em;
+                margin-top: -.15em;
+            }
+        }
+        &:hover, &:focus {
+            + label:before {
+                border-color: $color-link transparent transparent transparent;
+                @include box-shadow(none);
+            }
+        }
+        &:checked {
+            + label:after {
+                content: none; // revert from _form.scss
+            }
+        }
+    }
+
+    @media (hover: none), (any-pointer: coarse) {
+        li a.dropdown {
+            padding-right: 1.5em;
+        }
+        input[type=checkbox] + label {
+            &:before {
+                border-width: .5em .5em 0 .5em;
+            }
+        }
+    }
+}
+
+// mobile main nav
+
+@include breakpoint(small) {
+    .nav-visible-tiny {
+        display: none !important;
+    }
+}
+
+nav#nav {
+
+    @include breakpoint(mini) {
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        > ul, > ol {
+            display: none;
+        }
+        a[href="#nav"], .icon-close, .icon-home {
+            position: fixed;
+            top: .5em;
+            left: .5em;
+            display: block;
+            width: 2em;
+            height: 2em;
+            margin: 0;
+            padding: 0;
+            z-index: 11;
+        }
+        .icon-close, .icon-home {
+            display: none;
+        }
+        &:target, &.mobile-nav-targeted {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 3em; // for close button
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: $color-nav-mini-bg;
+            a[href="#nav"] {
+                display: none;
+            }
+            .icon-home {
+                display: block;
+                right: .5em;
+                left: auto;
+            }
+            .icon-close {
+                display: block;
+            }
+            > ul, > ol {
+                display: block;
+            }
+            input[type=checkbox] {
+                + label {
+                    height: 2.2em;
+                    &:before {
+                        
+                    }
+                }
+            }
+            li {
+                display: block;
+                margin: 0;
+                a {
+                    display: block;
+                    padding: .5em;
+                    color: $color-nav-mini;
+                    border-bottom: 1px solid $color-nav-mini;
+                    &:hover, &:focus {
+                        color: $color-nav-mini-hover;
+                        background-color: $color-nav-mini;
+                    }
+                    &.dropdown {
+                        padding-right: 2em;
+                    }
+                }
+                &:hover > ul,
+                &:focus > ul,
+                > a:hover + ul,
+                > a:focus + ul,
+                &:hover > ol,
+                &:focus > ol,
+                > a:hover + ol,
+                > a:focus + ol
+                {
+                    position: static;
+                    background-color: transparent;
+                    padding-left: 1em;
+                    a {
+                        border-left: 1px solid $color-nav-mini;
+                    }
+                }
+                &:focus-within > ul,
+                &:focus-within > ol
+                {
+                    position: static;
+                    background-color: transparent;
+                    padding-left: 1em;
+                    a {
+                        border-left: 1px solid $color-nav-mini;
+                    }
+                }
+                &.nav-spacer {
+                    border-top: 4px solid $color-nav-mini;
+                }
+            }
+        }
+    }
+}

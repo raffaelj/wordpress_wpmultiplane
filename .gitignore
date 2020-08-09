@@ -44,7 +44,7 @@ defines.php
 
 # temporary ignore to keep the initial commit readable
 # /lib/cockpit
-/lib/cpmultiplane
+# /lib/cpmultiplane
 # /modules/FormValidation
 # /modules/rlj-blocks
 # /modules/SqlDriver

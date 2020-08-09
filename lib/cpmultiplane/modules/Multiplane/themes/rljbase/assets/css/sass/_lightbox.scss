@@ -1,0 +1,96 @@
+
+.lightbox {
+    position: fixed;
+    display: none;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,.9);
+    z-index: 10;
+    outline: 0; // prevent outline on focus (Chrome)
+    &.active {
+        display: table;
+    }
+    > div {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    img {
+        display: inline-block;
+        width: auto;
+        max-height: 80vh;
+        + div { // caption
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,.8);
+            padding: .2em 1em 1em;
+            box-sizing: border-box;
+            color: #fefefe;
+        }
+    }
+    a {
+        outline: 0; // prevent dotted outline on focus
+    }
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        height: 2em;
+        line-height: 2em;
+        margin-top: -1em;
+        font-size: 2em;
+        width: 2em;
+        &:hover, &:focus {
+            background-color: rgba(255,255,255,.1);
+            border-radius: 50%;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: -1rem;
+            border-style: solid;
+            border-color: transparent;
+            border-width: 1rem;
+            background-color: transparent;
+        }
+    }
+    .prev {
+        left: .5rem;
+        &:before {
+            left: .25rem;
+            border-right-color: rgba(255,255,255,.7);
+        }
+        &:hover:before, &:focus:before {
+            border-right-color: rgba(255,255,255,.9);
+        }
+    }
+    .next {
+        right: .5rem;
+        &:before {
+            right: .25rem;
+            border-left-color: rgba(255,255,255,.7);
+        }
+        &:hover:before, &:focus:before {
+            border-left-color: rgba(255,255,255,.9);
+        }
+    }
+    .icon-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        border: 2px solid $color-white-transp;
+        background-color: transparent;
+        color: $color-white;
+        &:hover, &:focus {
+            color: $color-link-hover;
+            background-color: $color-white-transp;
+        }
+    }
+    .hidden {
+        display: none;
+    }
+}

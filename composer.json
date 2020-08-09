@@ -1,0 +1,70 @@
+{
+    "name": "raffaelj/wordpress-wpmultiplane",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raffael Jesche",
+            "homepage": "https://www.rlj.me"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/raffaelj/cockpit",
+            "no-api": true
+        }
+    ],
+    "require": {
+        "agentejo/cockpit": "dev-wpmp-cockpit-lib",
+        "raffaelj/cpmultiplane": "dev-master",
+        "raffaelj/cockpit-videolinkfield": "^0.1.3",
+        "raffaelj/cockpit-formvalidation": "^0.2.10",
+        "raffaelj/cockpit-tables": "^0.3.1",
+        "raffaelj/wordpress-rlj-blocks": "^0.2.0",
+        "piotr-cz/cockpit-sql-driver": "^v1.0.0-rc.3",
+        "oomphinc/composer-installers-extender": "^1.1"
+    },
+    "replace": {
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "*",
+        "claviska/simpleimage": "*",
+        "ksubileau/color-thief-php": "*",
+        "league/flysystem": "*",
+        "firebase/php-jwt": "*",
+        "mongodb/mongodb": "*",
+        "erusev/parsedown": "*",
+        "erusev/parsedown-extra": "*",
+        "maennchen/zipstream-php": "*",
+        "colinodell/json5": "*",
+
+        "markbaker/matrix": "*",
+        "markbaker/complex": "*",
+        "psr/simple-cache": "*",
+        "psr/http-message": "*",
+        "psr/http-factory": "*",
+        "psr/http-client": "*",
+        "phpoffice/phpspreadsheet": "*"
+    },
+    "config": {
+        "vendor-dir": "lib/vendor",
+        "preferred-install": {
+            "*": "dist"
+        }
+    },
+    "extra": {
+        "installer-types": [
+            "project",
+            "library"
+        ],
+        "installer-paths": {
+            "lib/{$name}": [
+                "type:project"
+            ],
+            "modules/{$name}": [
+                "type:cockpit-module",
+                "type:wordpress-plugin"
+            ]
+        }
+    }
+}

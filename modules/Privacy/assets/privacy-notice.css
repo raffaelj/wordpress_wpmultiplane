@@ -1,0 +1,49 @@
+
+#privacy-notice {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10000;
+    bottom: 100%;
+
+    width: calc(100vw - 1em);
+    max-height: calc(100vh - 1em);
+    margin: .5em;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    font-size: .9em;
+    background-color: rgba(255,255,255,.98);
+    outline: 0;
+    transition: opacity .5s ease-in, bottom .8s ease-in-out;
+}
+
+#privacy-notice h1 {
+    font-size: 1.5em;
+}
+#privacy-notice form {
+    margin: 0;
+}
+#privacy-notice button {
+    margin-top: .5em;
+}
+
+#privacy-notice.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 0;
+}
+@media (min-width: 500px) {
+    #privacy-notice.show {
+        top: auto;
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+    }
+}
+@media (min-width: 768px) {
+    #privacy-notice.show {
+        width: 740px;
+        margin-left: -370px;
+    }
+}

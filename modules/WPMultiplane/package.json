@@ -1,0 +1,16 @@
+{
+    "name": "wpmultiplane",
+    "label": "WPMultiplane",
+    "version": "0.1.0",
+    "author": "Raffael Jesche",
+    "homepage": "https://github.com/raffaelj/WPMultiplane",
+    "license": "MIT",
+    "description": "",
+    "scripts": {
+        "build": "node-sass -r --source-map true --output-style compressed assets/css/style.scss assets/css/style.min.css",
+        "watch": "npm run build && npm run build -- -w"
+    },
+    "devDependencies": {
+        "node-sass": "^4.13.1"
+    }
+}

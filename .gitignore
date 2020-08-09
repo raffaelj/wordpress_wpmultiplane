@@ -48,5 +48,5 @@ defines.php
 # /modules/FormValidation
 # /modules/rlj-blocks
 # /modules/SqlDriver
-/modules/Tables
+# /modules/Tables
 # /modules/VideoLinkField

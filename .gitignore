@@ -45,8 +45,8 @@ defines.php
 # temporary ignore to keep the initial commit readable
 /lib/cockpit
 /lib/cpmultiplane
-/modules/FormValidation
-/modules/rlj-blocks
-/modules/SqlDriver
+# /modules/FormValidation
+# /modules/rlj-blocks
+# /modules/SqlDriver
 /modules/Tables
-/modules/VideoLinkField
+# /modules/VideoLinkField

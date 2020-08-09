@@ -1,0 +1,23 @@
+{
+    "name": "raffaelj/wordpress-rlj-blocks",
+    "type": "wordpress-plugin",
+    "description": "Gutenberg blocks: Section (a simple div), Video link; Gutenberg extensions: image titles",
+    "keywords": ["Gutenberg", "WordPress", "plugin", "wrapper div", "a simple div", "video thumbnail download"],
+    "homepage": "https://github.com/raffaelj/wordpress_rlj-blocks",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raffael Jesche",
+            "homepage": "https://www.rlj.me"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.9"
+    },
+    "config": {
+        "vendor-dir": "lib/vendor"
+    },
+    "extra": {
+        "installer-name": "rlj-blocks"
+    }
+}

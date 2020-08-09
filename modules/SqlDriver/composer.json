@@ -1,0 +1,61 @@
+{
+    "name": "piotr-cz/cockpit-sql-driver",
+    "type": "cockpit-module",
+    "description": "SQL Driver for Cockpit CMS",
+    "keywords": ["cockpit", "Database driver", "SQL", "MariaDB", "MySQL", "PostgreSQL"],
+    "homepage": "https://github.com/piotr-cz/cockpit-sql-driver",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Konieczny",
+            "email": "hello@piotr.cz",
+            "homepage": "https://www.piotr.cz"
+        }
+    ],
+    "require": {
+        "php": ">= 7.1",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "composer/installers": "^1.2"
+    },
+    "require-dev": {
+        "aheinze/cockpit": "0.*",
+        "friendsofphp/php-cs-fixer": "^2.16.1",
+        "phpunit/phpunit": "^7.5"
+    },
+    "suggest": {
+        "ext-pdo_mysql": "For MySQL support",
+        "ext-pdo_pgsql": "For PostgreSQL support",
+        "ext-mongodb": "For running tests with MongoDB",
+        "aheinze/cockpit": "Please install Cockpit before installing this addon"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/",
+            "": [
+                "vendor/aheinze/cockpit/lib/",
+                "vendor/aheinze/cockpit/vendor/"
+            ]
+        },
+        "exclude-from-classmap": "vendor/aheinze/cockpit/lib/vendor/"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1.30",
+            "ext-mongodb": "1.5.0"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-name": "SqlDriver"
+    },
+    "scripts": {
+        "test": [
+            "@test:phpcs",
+            "@test:phpunit"
+        ],
+        "test:phpunit": "phpunit",
+        "test:phpcs": "php-cs-fixer fix -vv --diff --dry-run",
+        "phpcs-fix": "php-cs-fixer fix -vv --diff"
+    }
+}

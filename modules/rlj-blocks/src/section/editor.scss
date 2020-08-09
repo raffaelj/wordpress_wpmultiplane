@@ -1,0 +1,58 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+@import '../common';
+
+.wp-block-rlj-section {
+    background-repeat: no-repeat;
+    padding: 3rem;
+    height: 100%; // parent needs overflow: hidden;
+    &.has-background-dim {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: inherit;
+            opacity: .5;
+            z-index: 1;
+        }
+    }
+}
+
+.has-background {
+    background-size: cover;
+    background-position: 50%;
+}
+
+.has-parallax {
+    background-attachment: fixed;
+}
+
+.is-style-rounded {
+    border-radius: $border-radius;
+}
+
+.is-style-shadow {
+    @include box-shadow(0 3px 4px 0px $color-black-transp-light);
+}
+
+.is-style-shadow-rounded {
+    border-radius: $border-radius;
+    @include box-shadow(0 3px 4px 0px $color-black-transp-light);
+}
+
+.has-primary-background-color {background-color: $color-main;}      // #d30d0d
+.has-secondary-background-color {background-color: $color-secondary;}    // rgba(221,0,0,.7)
+.has-tertiary-background-color {background-color: $color-tertiary;}     // #d86018
+.has-darker-gray-background-color {background-color: $color-darker;}  // #141414
+.has-dark-gray-background-color {background-color: $color-dark;}    // #212121
+.has-light-gray-background-color {background-color: $color-grey;}   // #767676
+.has-white-background-color {background-color: $color-white;}       // #efefef

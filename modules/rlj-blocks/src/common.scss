@@ -1,0 +1,48 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+
+$color-white: #efefef;
+$color-black: #000;
+$color-white-transp: rgba(255,255,255,.9);
+$color-black-transp: rgba(0,0,0,.8);
+$color-black-transp-light: rgba(0,0,0,.2);
+$color-bg: #f4f4f4;
+
+$color-dark: #212121;
+$color-darker: #141414;
+$color-shadow: #ccc;
+$color-grey: #767676;
+
+$color-main: #d30d0d;
+$color-secondary: rgba(221,0,0,.7);
+$color-tertiary: #d86018;
+
+$color-text: #efefef;
+
+$color-link: $color-tertiary;
+$color-link-hover: #d65050;
+
+// fonts
+$font: system, Helvetica, sans-serif;
+$font_extra: Oswald, $font; // webfont for headlines
+
+// other
+$border-radius: 2px;
+// $width: 960px;
+$width: 60rem; // 60 * 16px = 960px
+
+// box-shadow
+@mixin box-shadow($shadow...) {
+	-webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+
+$color-black-transp-light: rgba(0,0,0,.2);
+$border-radius: 2px;

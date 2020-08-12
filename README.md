@@ -67,19 +67,20 @@ Simple, useful, not (very) bloated:
 * [ ] rlj-blocks: functions should be in class to avoid global scope polution
 * [ ] shortcodes for collections, mp partials...
 * [ ] cleanup
-* [ ] 
-* [ ] 
 
 ## build
 
-install/update dependencies:
+install dependencies:
 
 `composer install --no-dev --ignore-platform-reqs`
+
+update dependencies:
+
 `composer update --no-dev --ignore-platform-reqs`
 
 ## Copyright and License
 
-Copyright 2019 Raffael Jesche under the MIT license.
+Copyright 2020 Raffael Jesche under the MIT license.
 
 See [LICENSE][5] for more information.
 
@@ -99,5 +100,5 @@ See [LICENSE][5] for more information.
 [2]: https://github.com/raffaelj/CpMultiplane
 [3]: https://github.com/piotr-cz/cockpit-sql-driver
 [4]: https://github.com/aheinze
-[5]: https://github.com/raffaelj/WPMultiplane/blob/master/LICENSE
+[5]: https://github.com/raffaelj/wordpress_wpmultiplane/blob/master/LICENSE
 [6]: https://www.rlj.me
